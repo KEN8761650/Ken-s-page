@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024.10.22 Paper Japanese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 30px;
+            width: 130px;
+            background-color: aqua;
+            border: 2px solid red;
+            padding: 5px;
+        }
+        h2 {
+            font-size: 30px;
+            width: 250px;
+            background-color: rgb(21, 184, 86);
+            border: 2px solid red;
+            padding: 5px;
+
+            margin: 30px 0; /* 為了便於測試，在標題上設置較大的上下外邊距 */
+            scroll-margin-top: 50vh; /* 確保標題在螢幕中間位置 */
+        }
+        li {
+            font-size: 20px;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0; /* 距離頁面頂端 0px */
+            background-color: #f0f0f0; /* 背景色讓容器更醒目 */
+            padding: 5px;
+            z-index: 10; /* 確保容器在其他元素之上 */
+        }
+        p {
+            font-size: 20px;        
+        }
+        div>#theme{
+            color: brown;
+            background-color: bisque;
+            font-size: 35px;
+        }
+        div>#keyword, div>#association {
+            display: block;
+            padding: 3px;
+            float: right;
+            clear: right;
+            /* 確保每個元素在右側獨立排列 請確保 HTML 結構中 #association 是緊隨 #keyword 之後*/
+        }
+        div>#keyword {
+            color: red;
+        }
+        div>#association {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-container">
+        <span id="theme">YOLOv7モデルによる口腔粘膜病変のトリアージ</span><br>
+        <span id="keyword">キーワード: 口腔腫瘍、口腔病理学、ディープラーニング、人工知能、コンピューター支援意思決定</span>
+        <span id="association">台湾医学会、2024年7月12日オンライン公開</span>
+        <h1>Index</h1>
+        <ul>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Method">Method</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>
+            <li><a href="#Results">Results</a></li>
+            <li><a href="#Limitations of this study">Limitations of this study</a></li>
+        </ul>
+    </div>
+    <br><br><br><br><br>
+    <h2 id="Purpose">Purpose</h2>
+        <p>唇および口腔癌の世界的な発生率は増加し続けており、早期発見の方法を改善する必要があります。<br>
+           本研究は、コンピュータビジョンおよびディープラーニングの能力を活用して、口腔粘膜病変の早期発見と分類を向上させることを目的としています。</p>
+    <br><br><br><br><br>
+    <h2 id="Method">Method</h2>
+        <p>1.データセット: 2006年から2013年にかけて、熟練した口腔顎顔面外科医によってデジタル単眼レフカメラ（Nikon D200およびD800、ニコン株式会社、東京、日本）を取得して使用した、病変の有無にかかわらず口腔粘膜の白色光マクロ写真合計6903枚。このデータセットは5万枚以上に拡張されました。最終データセットでは、病変が <a href="./table1.png" target="_blank">3つの分類（良性: 緑、潜在的悪性: 黄、悪性: 赤）</a>に分類されました（シニアの口腔顎顔面外科医によるレビュー）。6903枚の写真から得られた6383の口腔病変は、各クラスごとに8:1:1の割合で訓練、検証、およびテストのサブセットにランダムに分割されました。<br>
+            2.モデル: YOLOv7、1000エポックで、学習率0.01、モーメンタム0.937、ウェイト減衰0.0005、バッチサイズ21で確率的勾配降下（SGD）オプティマイザを使用。最初の3エポックは、モーメンタムとバイアス学習率をそれぞれ0.8と0.1に設定したウォームアップ期間。<br>
+            3.GPU: Nvidia RTX 2080Ti GPU 3台、合計36GBのビデオRAM。<br>
+            4.画像: 長辺を640ピクセルにリサイズし、短辺を21の倍数でパディングして長方形推論を実施。NMSの閾値は0.45に設定し、候補ボックスとIoUが0.45以上の境界ボックスは同じオブジェクト領域を参照するとみなされます。</p>
+    <br><br><br><br><br>
+    <h2 id="Conclusion">Conclusion</h2>
+        <p>本研究は、口腔病変の分類およびトリアージにおけるさまざまなYOLOv7モデル構成の堅牢な比較を提供します。<br>
+            座標アテンションを導入したYOLOv7-D6は特定のシナリオで優れた性能を示しましたが、臨床応用に最も適したモデルを決定するためにはさらなる研究が必要であることも示しています。<br>
+            全体的な結果は、ディープラーニングモデルが口腔癌の早期発見を強化する大きな可能性を持ち、臨床環境や遠隔スクリーニングでの応用において貴重な資産となることを強調しています。</p>
+    <br><br><br><br><br>
+    <h2 id="Results">Results</h2>
+        <p>YOLOv7モデル、特にYOLOv7-E6は、すべての病変カテゴリーにおいて高い精度と再現率を示しました。YOLOv7-D6モデルは、悪性病変の識別において優れた精度、再現率、およびF1スコアを達成しました。YOLOv7-D6-CAモデルにおける座標アテンションの統合を含む改善により、病変分類の精度が大幅に向上しました。<br>
+            <a href="./Table2.png" target="_blank">表2</a>は、各クラス（全体、G、Y、R）に対する異なるモデルバックボーンの精度、再現率、F1、mAP@0.5、mAP@0.5:0.95を示しています。クラス間の性能を比較すると、YOLOv7-E6はYおよびRクラスでやや弱い性能を示します。<br>
+            Yクラスにおいては、YOLOv7は再現率とF1で優れていますが、精度およびmAPスコアでは劣っています。<br>
+            Rクラスでは、YOLOv7-D6が精度、再現率、およびF1スコアでそれぞれ0.759、0.755、0.757を記録し、YOLOv7-E6Eも再現率、mAP@0.5:0.95、および特異度でそれぞれ0.761、0.453、0.853と高い数値を示し、YOLOv7-E6を上回っています。<br>
+            <a href="./fif2.png" target="_blank">図2</a>は、YOLOv7-D6およびその座標アテンション付きバリアント（CA）の混同行列と適合率-再現率曲線（P-R曲線）を示しています。<br>
+            <a href="./fig3.png" target="_blank">図3</a>は、モデルの限界と部分的な成功を示すケースを提示しています。また、モデルは、舌の左側下部にある目立つ静脈や唾液の泡を良性病変(G)として誤って識別しています。このケースは、接近した病変の正確な分類や正常な解剖学的構造との区別において直面する課題を示唆し、臨床環境での精度と信頼性を高めるためのモデルの継続的な改良の重要性を示す。</p>
+    <h2 id="Limitations of this study">Limitations of this study</h2>
+        <p>1.現在のデータセットは主に当医療センターの過去から現在の症例で構成されていますが、病院システムの分院からより多くの症例が登録されることで、ソースの多様性が増し、スクリーニングシナリオに近づくと期待されています。<br>
+            2.視覚データのみが保存されており、触診評価に関する情報はありません。触診評価は歯科医師の定期的な口腔検査 (COE) のもう一つの重要な要素ですが、自動化された作業の複雑さ、触診評価の主観性を避けること、触覚センサーの利用可能性など、いくつかの必要な考慮事項が考えられる。<br>
+            3.我々のモデル予測はまだ臨床に適用しておらず、分類に関する人工的なカテゴリの検証や改善が行われる必要がある可能性があります。</p>
+</body>
+</html>
