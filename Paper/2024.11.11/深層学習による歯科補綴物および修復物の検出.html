@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024.10.22 Paper Japanese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 30px;
+            width: 130px;
+            background-color: aqua;
+            border: 2px solid red;
+            padding: 5px;
+        }
+        h2 {
+            font-size: 30px;
+            width: 250px;
+            background-color: rgb(21, 184, 86);
+            border: 2px solid red;
+            padding: 5px;
+
+            margin: 30px 0; /* 為了便於測試，在標題上設置較大的上下外邊距 */
+            scroll-margin-top: 50vh; /* 確保標題在螢幕中間位置 */
+        }
+        li {
+            font-size: 20px;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0; /* 距離頁面頂端 0px */
+            background-color: #f0f0f0; /* 背景色讓容器更醒目 */
+            padding: 5px;
+            z-index: 10; /* 確保容器在其他元素之上 */
+        }
+        p {
+            font-size: 20px;        
+        }
+        div>#theme{
+            color: brown;
+            background-color: bisque;
+            font-size: 35px;
+        }
+        div>#keyword, div>#association {
+            display: block;
+            padding: 3px;
+            float: right;
+            clear: right;
+            /* 確保每個元素在右側獨立排列 請確保 HTML 結構中 #association 是緊隨 #keyword 之後*/
+        }
+        div>#keyword {
+            color: red;
+        }
+        div>#association {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-container">
+        <span id="theme">深層学習による歯科補綴物および修復物の検出</span><br>
+        <span id="keyword">キーワード:深層学習、歯科補綴物および修復物、YOLOv3</span>
+        <span id="association">Scientific Reports – Nature　Scientific Reports 第11巻、記事番号: 1960 (2021)</span>
+        <h1>Index</h1>
+        <ul>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Method">Method</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>
+            <li><a href="#Results">Results</a></li>
+            <li><a href="#Limitations of this study">Limitations of this study</a></li>
+        </ul>
+    </div>
+    <br><br><br><br><br>
+    <h2 id="Purpose">Purpose</h2>
+        <p>目的:<br>
+            近年、人工知能（AI）技術が歯科医療に応用されるようになり、歯科に関する一部のケースでは人間の介入が不要になっています。<br>
+            本研究の目的は、深層学習を用いて歯科補綴物および修復物を認識する方法を開発することです。</p>
+    <br><br><br><br><br>
+    <h2 id="Method">Method</h2>
+        <p>方法:<br>
+            1.データセット: 大阪大学歯学部附属病院の補綴科、高齢者歯科学、口腔リハビリテーション科を受診した患者から1,904枚の口腔写真 (上顎 1,084枚、下顎 820枚) を収集しました。データセットは最終的にランダムに2つに分けられ、1つは訓練用 (1,524枚: 上顎 867枚、下顎 657枚)、もう1つはテスト用 (380枚: 上顎 217枚、下顎 163枚) としました。<br>
+            アノテーション(註解): <br>
+            ① ツール: LabelImg<br>
+            ② クラス: 金属クラウン (CMCs)、金色の完全金属クラウン (GCMCs)、レジン前装金属クラウン (RFMCs)、メタルボンドクラウン (PFMCs)、セラミッククラウン (CCs)、コンポジットレジン充填物 (CR)、銀色の金属インレー修復物 (MIns)、金色の金属インレー修復物 (GIns)、および3種類の固定性部分義歯、CMCs (Br)、RFMCs (RFMCBr)、PFMCs (PFMCBr)。<br>
+            ③ クラスは各患者の臨床記録または歯科技工所の指示書に基づいて決定しました。<br>
+            2.モデル: YOLOv3、Python 3.5.2、Keras library 2.2.4、TensorFlow 1.12.0。<br>
+            3.訓練データセットは各エポックごとに8バッチに分けられ、学習率0.01で5,000エポックを実行しました。学習が完了した後、各補綴物の平均精度、平均の平均精度 (mAP)、および平均交差部分 (mean IoU) を用いて学習パフォーマンスを評価しました。</p>
+            <img src="./fig5.png" alt="" width="600">
+    <br><br><br><br><br>
+    <h2 id="Conclusion">Conclusion</h2>
+        <p>結論:<br>
+            本研究は、金属色の歯科補綴物および修復物が深層学習を用いて高精度で認識および予測できることを示唆しています。しかし、歯の色に近い補綴物は中程度の精度で認識されます。<br>
+            口腔写真の咬合面からの歯科補綴物および修復物の認識は、金属色の場合に高い精度を示します。<br>
+            しかし、口腔写真のみを用いた場合、歯の色の補綴物および修復物の認識は困難です。したがって、誤認識や誤検出を減らすためには、口腔写真の別の角度からの画像や、X線画像やデジタルスキャン画像などの他の画像との組み合わせが必要かもしれません。</p>
+    <br><br><br><br><br>
+    <h2 id="Results">Results</h2>
+        <p>結果:<br>
+            1.最も一般的なタイプはCMCであり、2,147件がありました。一方、最も少なかったのはRFMCBrで、104件でした <a href="./fig1.png" target="_blank">(図1)</a>。<br>
+            2.TP（真陽性）およびFP（偽陽性）として分類された補綴物の数は <a href="./fig2.png" target="_blank">図2</a>に示されています。<br>
+            3.TP率はCRで0.67からCMCで0.96までの範囲でした <a href="./fig3.png" target="_blank">(図3)</a>。<br>
+            4.各歯科補綴物および修復物のAP（平均精度）は以下のとおりです；CMC: 0.93、MIn: 0.92、GCMC: 0.90、GIn: 0.90、RFMCBr: 0.81、RFMC: 0.78、PFMC: 0.78、Br: 0.77、PFMCBr: 0.77、CR: 0.61、CC: 0.59 <a href="./fig4.png" target="_blank">(図4)</a>。<br>
+            5.本検出システムのmAP（平均平均精度）およびmIoU（平均交差部分）は、それぞれ0.80および0.76でした。<br>
+            6.各補綴物の平均精度は0.59から0.93までの範囲でした。本システムのmAPおよびmIoUは、それぞれ0.80および0.76でした。金属製の歯科補綴物の80%以上が正確に検出されましたが、歯の色の補綴物は60%のみ検出されました。</p>
+    <br><br><br><br><br>
+    <h2 id="Limitations of this study">Limitations of this study</h2>
+        <p>本研究の限界:<br>
+            1.口腔写真から歯科補綴物および修復物をmAP 0.80およびmIoU 0.76で認識することができます。<br>
+            2.金属色の歯科補綴物および修復物はAP 0.80以上で認識可能ですが、歯の色を持つものは約AP 0.60で認識されます。<br>
+            3.金属色の歯科補綴物および修復物の約80%が正確に認識されますが、歯の色のものについてはこの値は約60%となります。</p>
+</body>
+</html>
