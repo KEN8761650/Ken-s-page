@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024.10.22 Paper Japanese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 30px;
+            width: 130px;
+            background-color: aqua;
+            border: 2px solid red;
+            padding: 5px;
+        }
+        h2 {
+            font-size: 30px;
+            width: 250px;
+            background-color: rgb(21, 184, 86);
+            border: 2px solid red;
+            padding: 5px;
+
+            margin: 30px 0; /* 為了便於測試，在標題上設置較大的上下外邊距 */
+            scroll-margin-top: 50vh; /* 確保標題在螢幕中間位置 */
+        }
+        li {
+            font-size: 20px;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0; /* 距離頁面頂端 0px */
+            background-color: #f0f0f0; /* 背景色讓容器更醒目 */
+            padding: 5px;
+            z-index: 10; /* 確保容器在其他元素之上 */
+        }
+        p {
+            font-size: 20px;        
+        }
+        div>#theme{
+            color: brown;
+            background-color: bisque;
+            font-size: 35px;
+        }
+        div>#keyword, div>#association {
+            display: block;
+            padding: 3px;
+            float: right;
+            clear: right;
+            /* 確保每個元素在右側獨立排列 請確保 HTML 結構中 #association 是緊隨 #keyword 之後*/
+        }
+        div>#keyword {
+            color: red;
+        }
+        div>#association {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-container">
+        <span id="theme">生成的人工知能：歯科における合成データセット</span><br>
+        <span id="keyword">キーワード:生成的人工知能、合成データセット、深層学習、変分オートエンコーダ、敵対的生成ネットワーク、拡散モデル</span>
+        <span id="association">Nature, BDJ Open: BDJ Open、第10巻、第13号（2024年）</span>
+        <h1>Index</h1>
+        <ul>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Method">Method</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>
+            <li><a href="#Results">Results</a></li>
+            <li><a href="#My thoughts">My thoughts</a></li>
+        </ul>
+    </div>
+    <br><br><br><br><br>
+    <h2 id="Purpose">Purpose</h2>
+        <p>目的：<br>
+            &nbsp;歯科におけるデジタルデータの需要、分野内でのAIの進展に伴う課題、生成AIの技術、および合成データセット（SD）の可能性について述べる。</p>
+    <br><br><br><br><br>
+    <h2 id="Method">Method</h2>
+        <p>方法：<br>
+            &nbsp;生成AIの技術とその操作や運用を再検討し、合成データセット（SDs）の可能性と課題を議論し、AI研究に携わる医療専門家の理解を向上させるための潜在的な解決策を提示します。</p>
+    <br><br><br><br><br>
+    <h2 id="Conclusion">Conclusion</h2>
+        <p>結論：<br>
+            &nbsp;VAEs、GANs、拡散モデルは、合成データセット（SDs）を生成するために医療研究で活用されてきた。<br>
+             研究者のニーズに合わせた合成データを生成することで、堅牢なAIモデルをトレーニングすることが可能になる。 <br>
+             しかし、SDsに関連する制限をよりよく理解し、それらの懸念を広範な使用に先立って克服する必要である。<br>
+             AI開発における透明性と厳格な基準の順守は、この技術が医療現場に顕著な影響を与えるための前提条件である。</p>
+    <br><br><br><br><br>
+    <h2 id="Results">Results</h2>
+        <p>結果：<br>
+            1.従来に取得されたデータセットの課題： <br>
+            &nbsp;&nbsp;a. データのプライバシーと倫理的懸念 <br>
+            &nbsp;&nbsp;b. データアノテーション：時間がかかり、リソースを大量に消費する作業であり、画像内のすべての特徴を手動でラベル付けするために専門家が貴重な時間を費やしてデータセットを開発する必要がある。<br>
+            &nbsp;&nbsp;c. バイアス：先進国におけるAIの急増により、生成されるデータセットは世界の人口を代表していないため、社会経済的地位や民族性などに関連したデータ駆動型のバイアスが生じている。従来のデータセットに組み込まれるもう一つのタイプのバイアスは、特定の機器から取得された画像によるものである。<br>
+            2. SD（合成データ）の課題： <br>
+            &nbsp;&nbsp;a. 機密性：生成AIは元のデータの分布を学習する能力があるため、画像を患者の来院日時や曝露時間などの情報と関連付けることで、患者の再特定につながる可能性がある。<br>
+            &nbsp;&nbsp;b. 「合成性」の指標：画像は実際の画像に似ないほど「合成的」でありながら、現実世界のシナリオに適用できるほど「現実的」である必要がある。SDsの現実性を評価する指標としては、オリジナル画像と合成画像の構造的類似性を測定する「忠実度（fidelity）」がある。 <br>
+            &nbsp;&nbsp;c. バイアス：合成データの生成には人間が関与するため、人間のバイアスが組み込まれるリスクは依然として懸念される領域である（「提供者バイアス」と同様）。AI開発の初期段階でこれらのバイアスに対処しない場合、不正確な結果につながる可能性がある。 <br>
+            &nbsp;&nbsp;d. 偽の合成データ：生成AIは「ディープフェイク」として知られる偽のデータを意図的に生成するために使用される可能性がある。これらの合成的に改変された画像は、個人や産業に潜在的な害を与える脅威的なAIの進歩である。<br>
+            3. SD（合成データ）の可能性： <br>
+            &nbsp;&nbsp;a. 研究：AIモデルの性能はトレーニングに使用されるデータの量と変動に依存するため、SDは堅牢なモデルの開発につながる可能性がある。生成AIの潜在能力は、新しい種類のデータを生成して研究者が実験を行うために利用されることが期待されている。Synthetic Minority Oversampling Technique（SMOTE）は、稀な病気の具体例を生成し、すべての可能なデータの特徴を含めるようにSDに意図的に組み込むために使用できる。<br>
+            &nbsp;&nbsp;b. 教育：さまざまなシミュレーションは各学生の個別のニーズに合わせてカスタマイズでき、彼らが不足している分野でのトレーニングを支援する。生成AIの進歩の現状では、生成されたキャラクターを用いた仮想インストラクターが近い将来実現しそうである。<br>
+            4. 生成AIの技術： <br>
+            &nbsp;&nbsp;a. 変分オートエンコーダ（VAEs）：VAEsはオートエンコーダ（AE）として知られる深層生成モデルの高度なバージョンであり、トレーニングデータの複雑なパターンを学習できる。AEは「エンコーダ」と「デコーダ」の2つの部分から構成されている。エンコーダは高次元の入力データを低次元の表現にマッピングし、デコーダは圧縮された潜在空間データを用いて元の形に再構築する。 <br>
+            &nbsp;&nbsp;b. 生成的敵対ネットワーク（GANs）：GANsは「ジェネレーター」と「ディスクリミネーター」の2つのニューラルネットワークで構成されている。ジェネレーターはランダムなノイズ（ガウシアン）を用いて実際の画像に近い画像を生成する。ディスクリミネーターは、画像が「本物」か「偽物」かを区別するタスクを受け取る。 <br>
+            &nbsp;&nbsp;c. 拡散モデル：これらのモデルは「フォワードパス」（エンコーダ）と「バックワードパス」（デコーダ）の2段階プロセスを使用して新しいデータを生成する。フォワードパスでは、データ（画像、レントゲン写真など）にノイズ（ガウシアン）が反復的に追加される。バックワードパスでは、このプロセスを逆転させて画像からノイズを取り除こうとする。これにより、モデルは画像内の異なるピクセル間の関係を学習できるようになる。</p>
+        <img src="./Challenges and biases.png" alt="" width="600">
+        <img src="./Generative AI tech.png" alt="" width="600">
+    <br><br><br><br><br>
+    <h2 id="My thoughts">My thoughts</h2>
+        <p>思ったこと：<br>
+            &nbsp;&nbsp;1.粘膜や舌の動きを動画で撮影し、生成AIを使用して大量のデータを作成する。<br>
+            &nbsp;&nbsp;2.臨床に必要なデータ量を使用して、個々の患者モデルを作成する。<br>
+            &nbsp;&nbsp;3.実際の患者情報を除去し、残りの合成データを研究目的でデータベースに保存する。</p>
+</body>
+</html>
