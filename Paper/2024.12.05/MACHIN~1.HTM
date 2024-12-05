@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024.11.21 Paper Japanese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 25px;
+            width: 130px;
+            background-color: aqua;
+            border: 2px solid red;
+            padding: 5px;
+            margin-top: 35px;
+        }
+        h2 {
+            font-size: 30px;
+            width: 250px;
+            background-color: rgb(21, 184, 86);
+            border: 2px solid red;
+            padding: 5px;
+
+            margin: 30px 0; /* 為了便於測試，在標題上設置較大的上下外邊距 */
+            scroll-margin-top: 50vh; /* 確保標題在螢幕中間位置 */
+        }
+        li {
+            font-size: 15px;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0; /* 距離頁面頂端 0px */
+            background-color: #f0f0f0; /* 背景色讓容器更醒目 */
+            padding: 5px;
+            z-index: 10; /* 確保容器在其他元素之上 */
+        }
+        p {
+            font-size: 20px;        
+        }
+        div>#theme{
+            color: brown;
+            background-color: bisque;
+            font-size: 25px;
+        }
+        div>#keyword, div>#association {
+            display: block;
+            padding: 3px;
+            float: right;
+            clear: right;
+            /* 確保每個元素在右側獨立排列 請確保 HTML 結構中 #association 是緊隨 #keyword 之後*/
+        }
+        div>#keyword {
+            color: red;
+        }
+        div>#association {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-container">
+        <span id="theme">機械学習支援による嚥下評価:深層学習に基づく質改善ツールとしての脳卒中後嚥下障害スクリーニング</span><br>
+        <span id="keyword">キーワード:脳卒中、嚥下障害、機械学習、嚥下、ニューラル技術、オリジナル研究、質改善、人工知能</span>
+        <span id="association">Front. Neurosci., 24 November 2023　Sec. Neural Technology　Volume 17 - 2023</span>
+        <h1>Index</h1>
+        <ul>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Method">Method</a></li>
+            <li><a href="#Results">Results</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>
+        </ul>
+    </div>
+    <br><br><br><br><br>
+    <h2 id="Purpose">Purpose</h2>
+        <p>目的：<br>
+            脳卒中後の入院患者の音声サンプルを用いて嚥下障害をスクリーニングするために、最先端の深層学習モデル（ConvNext、DenseNet、およびアンサンブル）の評価を行う。</p>
+    <br><br><br><br><br>
+    <h2 id="Method">Method</h2>
+        <p>方法：<br>
+            1.参加者:<br>
+            a.対象者:<br>
+            合計70名の患者がSunnybrook Health Sciences Centerの入院神経血管ユニットから募集された。<br><br>
+            b.登録期間:<br> 
+            データセット作成のため、以下の期間に患者を登録した：<br>
+            エポック1: 2022年6月13日から2023年1月19日<br>
+            エポック2: 2023年1月24日から2023年3月4日<br><br>
+            c.スクリーニング方法:<br>       
+            当センターではTOR-BSST©を使用。<br>
+            Cochraneレビューで評価された36のスクリーニングテストの中で、TOR-BSST©は最も優れた3つのテストの1つとして特定されており、このスクリーニングツールを教師あり学習モデルに使用。合格または不合格の結果をトレーニングラベルとして設定した。<br><br>
+            d.登録プロセス:<br>      
+            登録はロール式で進行。複数のサンプリング日にわたって行われ、ランダムに選定された日には、ストロークユニットへの入院後72時間以内の連続的な入院患者を対象にサンプリングを実施した。<br><br>
+            e.除外基準:<br>        
+            英語を話せない患者<br>
+            他の医学的/神経学的状態による重大な発話障害がある患者<br>
+            医学的に不安定な患者<br><br>
+            <br><br><br>
+            2.データ収集:<br>
+            発話カテゴリ:<br>
+            (A) National Institutes of Health Stroke Scale (NIHSS)に関連する発話部分の録音<br>
+            目的: NIHSSを使用することで、発話テストの選択におけるバイアスを回避し、脳卒中評価における広範な使用実績を活用。<br>
+            分類: NIHSSの言語テストを以下の3つの発話タイプに分けた。<br>
+            1.連続発話<br>
+            2.文の朗読<br>
+            3.単語（物の名前を言う、または個々の単語を繰り返す）<br>
+            (B) 継続母音の録音<a href="./Figure 1.png" target="_blank">（図1A）</a><br>
+            1.目的: 各母音（/a/, /e/, /i/, /o/, /u/）を3秒間ずつ発声し、3回繰り返すよう依頼して収録。<br>
+            2.理由: 過去の研究では、継続母音は英語を母語としない患者にも容易に実施でき、発声の労力が少ないため選ばれた。<br>
+            3.方法:データは暗号化されたiPhone 12を用いて、標本化周波数44.1 kHz、16ビット解像度で収録。患者のベッドサイドテーブルに携帯を配置し、患者の口から約10 cm離れた位置で録音。データは入院中の脳卒中病棟で収集され、背景雑音を最小化した環境で実施。<br>
+            4.データの盲検化:<br>
+            エポック1: トレーニングデータの60%の録音で、モデル運用者（RS）はラベル割り当てや生音声ファイルについて盲検化された。<br>
+            エポック2: モデルテスト用に収集された全録音でも同様に盲検化された。<br>
+            5.データ処理:<br>
+            モデルのトレーニングとテストは、音声データから生成されたスペクトログラム画像を用いて実施。<br>
+            データ処理フローと分析<br>
+            <br><br><br>
+            3.データは品質を評価した後、以下の3段階のデータ処理パイプラインを経て分析されました<a href="./Figure 1.png" target="_blank">（図1参照） </a>。<br>
+            a.セグメンテーション<br>
+            手法:Audacity© デジタルオーディオワークステーションを用いて、関心のある音声（母音、単語、文、または連続発話）を手動でセグメント化。<br>
+            発話の開始点から終了点までをセグメント化し、適切なラベルを付けた後、オーディオファイルとしてエクスポート。<br>
+            カスタムPythonプログラム（詳細は補足方法に記載）を使用して、以下を実施：<br>
+            セグメント化されたオーディオファイルを読み込み<br>
+            ア　信号の前処理:<br>
+            イ　Melスペクトログラム画像への変換<br>
+            ウ　ウィンドウ処理:<br>
+            エ　統一スケーリングを確保するためにウィンドウ処理を使用。<br>
+            オ　0.5秒未満のクリップは除外。<br>
+            カ　ウィンドウ内の平均パワーを計算し、平均パワーから1.5標準偏差以下のウィンドウを除外。<br>
+            b.変換（Melスペクトログラムの生成）<br>
+            手法:<br>
+            各参加者のセグメント化されたオーディオファイルを、時系列データから対応するMelスペクトログラム画像に変換 <a href="./Figure 1.png">（図1C参照）</a>。評価の基準となる真値は、言語聴覚士による評価結果を使用。<br>
+            Melスペクトログラムの特徴:Melスペクトログラムは、人間の聴覚認知に対応しており、モデルが識別するパターンが臨床的に重要な特徴に基づいていることを保証。<br>
+            生成にはLibrosaライブラリを使用し、以下の構成で画像を生成：<br>
+            &nbsp;&nbsp;&nbsp;1.縦軸: Mel周波数帯域<br>
+            &nbsp;&nbsp;&nbsp;2.横軸: 時間<br>
+            色の強度: 各周波数と時間におけるスペクトル内容の大きさ<br>
+            <a href="./Figure 2.png" target="_blank"> 図2 </a>に示されるような形式でスペクトログラム画像を作成。<br>
+            &nbsp;&nbsp;&nbsp;3.画像タイプ:<br>
+            以下の2種類のMelスペクトログラム画像を生成し、個別に機械学習分類器をトレーニング：<br>
+            RGB Melスペクトログラム<br>
+            3チャンネルMelスペクトログラム<br>
+            c.機械学習<br>
+            セグメント化および変換されたデータを用いて、機械学習モデルをトレーニングし、評価を実施。詳細なプロセスは補足方法を参照。<br>
+            <br><br><br>
+            4.機械学習分類器：<br>
+            a.提案手法:<br>
+            深層ニューラルネットワーク（DNN）の一種である畳み込みニューラルネットワーク（CNN）を使用。<br>
+            役割: Melスペクトログラム画像を、TOR-BSST©スクリーニングの結果（合格/不合格）に基づいて分類。<br>
+            b.トレーニング手法:<br>
+            転移学習（Transfer Learning）:<br>
+            事前に訓練されたベースモデルを活用して、効率的に学習を行った。<br>
+            転移学習を利用することで、モデルの学習に必要な時間とリソースを削減し、精度を向上。<br>
+            c.アプローチの特徴:<br>
+            複数の分類器を統合:<br>
+            異なるベースモデルを用いて転移学習で訓練された複数の分類器を統合。<br>
+            この統合により、ランダムなパラメータ初期化によるモデルのばらつきを緩和。<br>
+            結果として、モデルの堅牢性が向上。<br>
+            d.視覚化:<br>
+            <a href="./Figure 1.png" target="_blank">図1C </a>では、Melスペクトログラム画像がモデルに入力される様子と、それを基にしたスクリーニング分類の流れを示している。<br>
+            この手法により、スクリーニング結果の分類精度を高めることを目指した。<br>
+            <br><br><br>
+            5.モデルのトレーニングとテスト<br>
+            a.データセットの分割:<br>
+            &nbsp;&nbsp;&nbsp;トレーニングセット: 最初の40名の参加者の音声サンプルを使用（全データの58.9%）。<br>
+            &nbsp;&nbsp;&nbsp;テストセット: 最後の28名の参加者のデータを使用（全データの41.1%）。<br>
+            トレーニング中には20%のデータを検証用として分割。<br>
+            トレーニングセットとテストセットの重複はなし。<br>
+            b.トレーニング設定:<br>
+            ConvNext:<br>
+            &nbsp;&nbsp;&nbsp;エポック数: 30<br>
+            &nbsp;&nbsp;&nbsp;学習率: 0.00001<br>
+            &nbsp;&nbsp;&nbsp;バッチサイズ: 32<br>
+            DenseNet:<br>
+            &nbsp;&nbsp;&nbsp;エポック数: 45<br>
+            &nbsp;&nbsp;&nbsp;学習率: 0.00001<br>
+            &nbsp;&nbsp;&nbsp;バッチサイズ: 32<br>
+            c.過学習の防止:<br>
+            学習率スケジューラーと早期終了（early stopping）を使用 <a href="./Figure 3.png" target="_blank">（図3参照）</a>。<br>
+            早期終了の基準は検証損失（validation loss）とし、各モデルに異なる設定を採用：<br>
+            DenseNet: 目標エポック数55、patience（許容待機回数）7<br>
+            ConvNext-Tiny: 目標エポック数30、patience 10<br>
+            この設計により、各モデルのパラメータ数の違いに応じた柔軟な学習設定を可能とし、モデルの汎化性能を高めることを意図しています。
+        </p>
+    <br><br><br><br><br>
+    <h2 id="Results">Results</h2>
+        <p>結果：<br>
+            1.患者群間の比較:
+            &nbsp;&nbsp;&nbsp;合格/不合格群の比較:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NIHSS（National Institutes of Health Stroke Scale）のスコアが不合格患者で有意に高かった。
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一方、合格患者は低いNIHSSスコアと関連し、予想通りの結果を示した<a href="./Table 1.png" target="_blank">（表1参照） </a>。
+            &nbsp;&nbsp;&nbsp;トレーニング群とテスト群の比較:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;両群間で基礎的な人口統計に有意差はなく、一貫性が確認された<a href="./sup table 1.png" target="_blank">（補足表1参照）</a>。
+            2.分類器の性能:
+            &nbsp;&nbsp;&nbsp;クリップレベルと参加者レベル:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;トレーニングおよびテスト時の分類器の性能は、クリップレベルおよび参加者レベルでそれぞれ<a href="./Table 2.png" target="_blank">表2</a>、<a href="./Table 3.png" target="_blank">表3 </a>に示されている。
+            &nbsp;&nbsp;&nbsp;アンサンブル融合モデル:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DenseNet-121とConvNext-Tinyモデルを統合したアンサンブルモデルは、以下の性能を達成した：
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;感度: 0.71
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特異度: 0.77
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;適合率: 0.62
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F1スコア: 0.73
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AUC: 0.80 [95%信頼区間: 0.78, 0.82]
+            &nbsp;&nbsp;&nbsp詳細は <a href="./sup table 1.png" target="_blank">補足表1</a>および<a href="./sup figure 4.png" target="_blank"> 補足図4</a>を参照。
+            3.NIHSSスピーチコンポーネントの効果:
+            参加者レベルでの評価では、NIHSSのスピーチコンポーネントが提供する追加情報が、分類器の性能を有意に向上させることが確認された<a href="./Table 4.png" target="_blank">（表4参照） </a>。
+            この結果は、トレーニングおよびテストデータセット間の整合性を確保しつつ、アンサンブルモデルの堅牢性を強調し、NIHSSのスピーチコンポーネントがモデルの診断精度向上に寄与することを示しています。
+            </p>
+    <br><br><br><br><br>
+    <h2 id="Conclusion">Conclusion</h2>
+        <p>結論：<br>
+            本研究は、深層学習を用いて音声データから脳卒中後の嚥下障害をスクリーニングする有効性と実現可能性を示しました。このアプローチは、非侵襲的、主観性が低い、かつ迅速な嚥下障害スクリーニングツールの将来的な開発に道を開くものです。これにより、患者管理や治療結果の向上、さらには嚥下スクリーニングの普及に貢献する可能性があります。</p>
+    <br><br><br><br><br>
+</body>
+</html>
