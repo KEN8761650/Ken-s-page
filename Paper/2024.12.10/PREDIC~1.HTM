@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024.11.21 Paper Japanese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 25px;
+            width: 80px;
+            background-color: aqua;
+            border: 2px solid red;
+            padding: 3px;
+            margin-top: 25px;
+        }
+        h2 {
+            font-size: 30px;
+            width: 250px;
+            background-color: rgb(21, 184, 86);
+            border: 2px solid red;
+            padding: 5px;
+            margin: 30px 0; /* 為了便於測試，在標題上設置較大的上下外邊距 */
+            scroll-margin-top: 50vh; /* 確保標題在螢幕中間位置 */
+        }
+        li {
+            font-size: 15px;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0; /* 距離頁面頂端 0px */
+            background-color: #f0f0f0; /* 背景色讓容器更醒目 */
+            padding: 5px;
+            z-index: 10; /* 確保容器在其他元素之上 */
+        }
+        p {
+            font-size: 20px;        
+        }
+        div>#theme{
+            color: brown;
+            background-color: bisque;
+            font-size: 25px;
+        }
+        div>#keyword, div>#association {
+            display: block;
+            padding: 3px;
+            float: right;
+            clear: right;
+            /* 確保每個元素在右側獨立排列 請確保 HTML 結構中 #association 是緊隨 #keyword 之後*/
+        }
+        div>#keyword {
+            color: red;
+        }
+        div>#association {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-container">
+        <span id="theme">機械学習を用いた患者の食後の音声分析による嚥下性誤嚥の予測</span><br>
+        <span id="keyword">キーワード:嚥下性誤嚥、食後音声ベース、疾患予測モデル、機械学習、遠隔診断およびモニタリング技術、音声分析</span>
+        <span id="association">Journal of NeuroEngineering and Rehabilitation volume 21, Article number: 43 (2024)</span>
+        <h1>Index</h1>
+        <ul>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Method">Method</a></li>
+            <li><a href="#Results">Results</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>
+            <li><a href="#Limitations">Limitations</a></li>
+        </ul>
+    </div>
+    <br><br><br><br><br>
+    <h2 id="Purpose">Purpose</h2>
+        <p>目的：<br>
+            最終的な目標は、将来的に高度な嚥下障害の診断およびモニタリングシステムを開発するための基盤を確立することでした。</p>
+    <br><br><br><br><br>
+    <h2 id="Method">Method</h2>
+        <p>方法：<br>
+            1.参加者:<br>
+            &nbsp;&nbsp;&nbsp;(a) 選定基準:<br>
+            &nbsp;&nbsp;&nbsp;患者:<br>
+            &nbsp;&nbsp;&nbsp;(1)嚥下障害の徴候および症状があり、VFSS（嚥下造影検査）を予定している患者。<br>
+            &nbsp;&nbsp;&nbsp;(2)「アー」を5秒間録音できる患者。<br>
+            &nbsp;&nbsp;&nbsp;健常者:<br>
+            &nbsp;&nbsp;&nbsp;嚥下障害の症状がなく、正常な音声を録音できる健常なボランティア。<br>
+            &nbsp;&nbsp;&nbsp;(b) 除外基準:<br>
+            &nbsp;&nbsp;&nbsp;(1)研究者の指示に従って話すことができない場合。<br>
+            &nbsp;&nbsp;&nbsp;(2)VFSSの再検査が必要な患者。<br>
+            &nbsp;&nbsp;&nbsp;(3)重度の音声障害がある場合（声帯結節、声帯麻痺、声帯筋緊張性発声障害など）。<br>
+            &nbsp;&nbsp;&nbsp;(c) VFSS評価: 正常または誤嚥:<br>
+            &nbsp;&nbsp;&nbsp;<a href="./PAS scale.png" target="_blank">Penetration-Aspiration Scale (PAS):</a><br>
+            &nbsp;&nbsp;&nbsp;PAS 1: 正常と判定。<br>
+            &nbsp;&nbsp;&nbsp;PAS 5–7: 誤嚥と分類。<br>
+            &nbsp;&nbsp;&nbsp;(d)結果:<br>
+            &nbsp;&nbsp;&nbsp;126名の参加者（正常: 53名、誤嚥: 73名）について、画像に基づいた評価を実施。<br>
+            &nbsp;&nbsp;&nbsp;評価は2名の臨床医によって解釈され、<a href="./Cohen Kappa 係數.png" target="_blank">Cohenのカッパ係数</a>: 0.87を示した。<br>
+            &nbsp;&nbsp;&nbsp;(e) 音声録音:<br>
+            &nbsp;&nbsp;&nbsp;285名の参加者から同意を得て音声を収録。<br>
+            &nbsp;&nbsp;&nbsp;健康なボランティア: 嚥下障害が疑われない159名。<br>
+            &nbsp;&nbsp;&nbsp;患者: 嚥下性誤嚥が疑われ、VFSSを受けた126名。<br>
+            &nbsp;&nbsp;&nbsp;(f) 年齢によるバイアス:<br>
+            &nbsp;&nbsp;&nbsp;患者群: 誤嚥群には40歳未満の参加者が1名含まれていた。<br>
+            &nbsp;&nbsp;&nbsp;バイアス除去:<br>
+            &nbsp;&nbsp;&nbsp;患者の音声ベースの予測モデルにおける年齢バイアスを排除するため、以下の79名を研究対象から除外:<br>
+            &nbsp;&nbsp;&nbsp;40歳未満の嚥下障害が疑われない参加者75名。<br>
+            &nbsp;&nbsp;&nbsp;VFSS検査で正常と診断された40歳未満の3名。<br>
+            &nbsp;&nbsp;&nbsp;誤嚥群に分類された40歳未満の1名。<br>
+            &nbsp;&nbsp;&nbsp;(g) 最終的な研究対象:<br>
+            &nbsp;&nbsp;&nbsp;総数: 198名。<br>
+            &nbsp;&nbsp;&nbsp;分類:<br>
+            &nbsp;&nbsp;&nbsp;(1)正常群: 128名（嚥下障害が疑われない者、およびVFSSで正常と診断された者）。<br>
+            &nbsp;&nbsp;&nbsp;(2)誤嚥群: 70名（VFSSで誤嚥と診断された者）。<br>
+            &nbsp;&nbsp;&nbsp;詳細な研究対象の選定プロセスは、<a href="./Figure1.png" target="_blank">図1</a>のフローチャートで示されています。<br><br>  
+            2.音声録音手順:<br>
+            (1)録音の流れ:<br>
+            テスト中、参加者には以下の摂取物を摂取した後、「アー」の音を5秒以上繰り返すよう指示。<br>
+            &nbsp;&nbsp;&nbsp;(a)水<br>
+            &nbsp;&nbsp;&nbsp;(b)粘度3のとろみ液（FT3）<br>
+            &nbsp;&nbsp;&nbsp;(c)液状食品（LF）<br>
+            &nbsp;&nbsp;&nbsp;(d)半混合食（SBD）<br>
+            &nbsp;&nbsp;&nbsp;(e)少量の液体（SF）<br>
+            &nbsp;&nbsp;&nbsp;(f)ヨープレイト（YP）<br>
+            &nbsp;&nbsp;&nbsp;摂取量は3ccに制限。<br>
+            (2)録音機器:Sony ICD-TX660レコーダーを使用して音声を収録。<br>
+            (3)収録された音声:(総計: 403ファイル)<br>
+            &nbsp;&nbsp;&nbsp;正常群: 210ファイル（男性64件、女性146件）<br>
+            &nbsp;&nbsp;&nbsp;誤嚥群: 193ファイル（男性147件、女性46件）<br>
+            (4)録音環境:外部ノイズを排除するために、研究者は録音室外から指示を行い、静かな環境を確保した。<br><br>
+            3.音声データの前処理:<br>
+            以下の手順（<a href="./Figure2.png" target="_blank">図2</a>に基づく）で音声データの前処理を行い、それを基に機械学習モデルを構築しました。<br>
+            ステップ 1: 音声データの初期クリーニング<br>
+            &nbsp;&nbsp;&nbsp;背景ノイズおよび外部音声を最小限に抑えるための処理を実施。<br>
+            ステップ 2: 音声データ形式の変換<br>
+            &nbsp;&nbsp;&nbsp;(1)モノラルへの変換:Sonyレコーダーの特性により、ステレオ録音されたデータをモノラルに変換し、データ損失を最小限に抑えるため、左右それぞれのチャンネルを分割して2つのモノラルファイルに生成。<br>
+            &nbsp;&nbsp;&nbsp;(2)音声データの標準化:wav、m4a、mp3など多様なフォーマットの音声ファイルを、統一フォーマット（mp3, 64kbps）に変換。<br>
+            ステップ 3: k-分割交差検証用の学習データセットとテストデータセットの作成<br>
+            &nbsp;&nbsp;&nbsp;mp3形式の音声データを、各グループごとに学習データとテストデータに約9:1の比率で分割。<br>
+            &nbsp;&nbsp;&nbsp;10分割交差検証を行った→同一人物のデータは同じフォールドにまとめ、データの分散を防止。<br>
+            ステップ 4: モデル学習用hdf5形式への変換<br>
+            &nbsp;&nbsp;&nbsp;Mobile-Net V3（音声パターン認識のためのEfficient Pretrained CNNsを活用、EfficientATモデル、MITライセンス）を用いたトレーニングのため、適切な形式にデータを変換。<br>
+            ステップ 5: 音声データの前処理<br>
+            &nbsp;&nbsp;&nbsp;EfficientATモデルを使用した音声データの詳細な前処理を実施。<br>
+            &nbsp;&nbsp;&nbsp;主な処理を以下に示す<br>
+            &nbsp;&nbsp;&nbsp;(1)プレエンファシスフィルタリング。<br>
+            &nbsp;&nbsp;&nbsp;(2)短時間フーリエ変換（STFT）。<br>
+            &nbsp;&nbsp;&nbsp;(3)パワーマグニチュード計算。<br>
+            &nbsp;&nbsp;&nbsp;(4)メル周波数フィルタバンク処理。<br>
+            &nbsp;&nbsp;&nbsp;この前処理により、高品質なデータセットが構築され、音声パターン認識モデルの精度を向上させる基盤が確立されました。<br><br>
+            4.嚥下障害予測モデルの開発:<br>
+            &nbsp;&nbsp;&nbsp;(1)使用された機械学習技術:<a href="https://acrocanthosaurus627.medium.com/pytorch%E5%AF%A6%E4%BD%9C%E7%B3%BB%E5%88%97-mobilenet-v3-e1a90b8a9abc" target="_blank">MobileNet V3</a>→音声データの学習に用いたモデル。<br>
+            &nbsp;&nbsp;&nbsp;(2)事前学習モデル vs 非事前学習モデル:データセットが限られている状況では、非事前学習モデルは特徴抽出が困難な場合があるため、本研究では、事前学習モデルと非事前学習モデルの性能を比較した。<br>
+            &nbsp;&nbsp;&nbsp;(3)モデル構築：<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;(a)事前学習モデル:<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;モデル名: mn30_as および mn40_as。<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="./EfficientAT model 是什麼.png" target="_blank">EfficientATモデル</a>の幅倍率（width_mult）およびハイパーパラメータに基づいて設計。<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;(b)非事前学習モデル:<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;モデル名: mn3.0 および mn4.0。<br>
+            事前学習モデルと同じ幅倍率とハイパーパラメータを用いて設計。<br>
+            &nbsp;&nbsp;&nbsp;(4)予測精度の検証：K分割交差検証: 10分割（k=10）を実施。<br>
+            &nbsp;&nbsp;&nbsp;(5)モデル学習の設定:<br>
+            &nbsp;&nbsp;&nbsp;(a)ワーカー数: 12<br>
+            &nbsp;&nbsp;&nbsp;(b)エポック数: 150<br>
+            &nbsp;&nbsp;&nbsp;(c)バッチサイズ: 64<br>
+            &nbsp;&nbsp;&nbsp;(c)学習率:初期値: 5.00e-5（一定値で開始）に設定したが、エポック100～105頃から徐々に減少し、最終的には 5.00e-7 に到達。また、学習率スケジューラーを使用した。<br>
+            &nbsp;&nbsp;&nbsp;(6)ヘッドタイプ：多層パーセプトロン (MLP): モデルの出力層として使用。<br>
+            本研究では、事前学習モデルが限られたデータ環境において効率的な特徴抽出と高精度な予測を可能にすることが期待されました。<br><br>
+            5.主要評価指標:<br>
+            ROC曲線下面積（AUC）を用いた。<br>
+            &nbsp;&nbsp;&nbsp;ROC曲線: モデルが誤嚥と正常なケースをどれだけ正確に区別できるかを視覚的に示す指標。<br>
+            &nbsp;&nbsp;&nbsp;横軸: False Positive Rate (FPR)（誤った正常判定率）。<br>
+            &nbsp;&nbsp;&nbsp;縦軸: True Positive Rate (TPR)（正しい誤嚥判定率）。<br>
+            &nbsp;&nbsp;&nbsp;AUC値: 0から1の範囲を取り、値が1に近いほど予測精度が高いことを示す。<br>
+            モデル予測性能の分析指標に関しては、以下の観点からモデルの予測性能を評価した:<br>
+            &nbsp;&nbsp;&nbsp;(1)Accuracy（正確性）: 全体的な分類の正解率。<br>
+            &nbsp;&nbsp;&nbsp;(2)mAP（平均適合率）: 予測の平均精度を評価。<br>
+            &nbsp;&nbsp;&nbsp;(3)Sensitivity（感度）: 誤嚥ケースを正しく検出できる割合（TPR）。<br>
+            &nbsp;&nbsp;&nbsp;(4)Specificity（特異度）: 正常ケースを正しく検出できる割合。<br>
+            &nbsp;&nbsp;&nbsp;(5)Precision（適合率）: 誤嚥と予測されたケースの中で、実際に誤嚥である割合。<br>
+            &nbsp;&nbsp;&nbsp;(6)F1-score: PrecisionとSensitivityの調和平均。モデルの全体的な性能を評価。<br>
+            &nbsp;&nbsp;&nbsp;(7)Loss（損失値）: モデルの誤差を示す指標。<br>
+            &nbsp;&nbsp;&nbsp;(8)Train Accuracy（学習正確性）: トレーニングデータでの正解率。<br>
+            &nbsp;&nbsp;&nbsp;(9)Train Loss（学習損失値）: トレーニング中の誤差。<br>
+            <img src="./Outcome variables figure.png" alt="" width="800" style="display: block; border: 2px solid red;">
+            &nbsp;&nbsp;&nbsp;これらの指標を用いて、モデルの誤嚥予測能力を多角的に評価しました。特にAUC値に重点を置くことで、モデルの区別能力の正確性を定量化しました。<br><br>
+            6.統計解析:<br>
+            音声データトレーニング前の分布分析と性別と年齢の分布分析を行った。<br>
+            また、各グループにおける性別と年齢の分布を解析し、個々の音声特性に影響を与える可能性を評価し、先行研究に基づき、嚥下障害に伴う可能性のある6つの併存疾患カテゴリを提示した。<br>
+            性別と併存疾患の分布の表示は、カテゴリ変数: 数値（%）とし、検定に関しては、<a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C" target="_blank">カイ二乗検定</a>を実施した。<br>
+            (a) 年齢に関する解析:<br>
+            &nbsp;&nbsp;&nbsp;解析方法:平均値 ± 標準偏差（Mean ± SD）で表示。<br>
+            &nbsp;&nbsp;&nbsp;検定方法: 非正規分布の場合、Mann–Whitney U検定を実施。<br>
+            &nbsp;&nbsp;&nbsp;正規性と等分散性の確認:Shapiro–Wilk検定(正規性の評価)とMauchly’s検定(分散の均一性を確認)<br>
+            (b) 有意水準:<br>
+            &nbsp;&nbsp;&nbsp; 各変数の有意性評価の閾値を p < 0.05　と設定した。<br>
+            &nbsp;&nbsp;&nbsp; 理由：<a href="https://haosquare.com/type-i-error-and-type-ii-error/#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E5%9E%8B%E4%B8%80%E8%88%87%E5%9E%8B%E4%BA%8C%E9%8C%AF%E8%AA%A4" target="_blank">第I種誤差（α）と第II種誤差（β）</a>のリスクバランスを反映。<br>
+            (c) モデル性能評価指標:<br>
+            &nbsp;&nbsp;&nbsp;(1)AUC(2)Accuracy（正確性）(3)mAP（平均適合率）(4)Sensitivity（感度）(5)Specificity（特異度）;(6)Precision（適合率）(7)F1-score(8)Loss（損失値）(9)Train Accuracy（学習正確性）
+            (10)Train Loss（学習損失値）<br>
+            (d) 音声のばらつきへの対応:<br>
+            &nbsp;&nbsp;&nbsp;モデルの信頼性向上のためのアプローチ:各性能指標を10分割交差検証の各フォールドごとに計算。<br>
+            &nbsp;&nbsp;&nbsp;結果の提示に関しては、<br>
+            &nbsp;&nbsp;&nbsp;各指標の平均値と95%信頼区間（CI）と10フォールド全体での最大性能を結果とした。<br>
+            &nbsp;&nbsp;&nbsp;本解析により、モデルの性能および音声データ特性に影響を与える可能性のある因子を多角的に検証し、結果の統計的信頼性を確保しました。
+            </p>
+    <br><br><br><br><br>
+    <h2 id="Results">Results</h2>
+        <p>結果：<br>
+            1.研究対象者の人口統計学的特性:<br>
+            <a href="./Table1.png" target="_blank">表1</a>は、全研究対象者の人口統計学的特性を示しています。<br>
+            2.モデル性能:<br>
+            10分割交差検証では、男性のみ、女性のみ、および男女混合（男性 + 女性）のモデルが構築されました。<br>
+            (1)<a href="./Table2.png" target="_blank">表2</a>は、男女混合モデル（男性 + 女性）の10フォールドにおける平均予測性能を示しています。<br>
+            <img src="./1.png" alt="" width="600" style="display: block; border: 3px solid black;">
+            (2) <a href="./Talbe3.png" target="_blank">表3</a>は、男性および女性それぞれの10フォールドにおける平均予測性能を示しています。<br>
+            <img src="./2.png" alt="" width="600" style="display: block; border: 3px solid black;">
+            (3) <a href="./Figure3.png" target="_blank">図3</a>は、各モデルの10フォールドにおける平均ROC曲線を示しています。<br>
+            3.学習済み機械学習モデルに基づく推論設計:<br>
+            このプロセスは主に以下の4つのステージで実施されます:<br>
+            (1)新しい音声データの入力:<br>
+            &nbsp;&nbsp;&nbsp;学習時と同じフォーマット（mp3, モノラル, 64kbps）の新しい患者の音声を入力します。<br>
+            (2)mp3から波形への変換:<br>
+            &nbsp;&nbsp;&nbsp;音声ファイルを、コンピュータが理解し解析できる波形データに変換します。<br>
+            (3)前処理と視覚的表現への変換:<br>
+            &nbsp;&nbsp;&nbsp;学習時と同じ設定（例: メルスペクトログラムの次元数128、サンプルレート32,000、ウィンドウ長640、ホップサイズ320）を使用して音声データを処理し、メルスペクトログラムと呼ばれる視覚的形式に変換します。<br>
+            (4)モデルの読み込みと結果の表示:<br>
+            &nbsp;&nbsp;&nbsp;学習済みモデルを読み込み、音声の視覚的表現を解析して、正常か嚥下性誤嚥かを予測します。<br>
+            結果はウィンドウに表示され、各状態（正常または嚥下性誤嚥）の可能性が示されます<a href="./Figure4.png" target="_blank">（図4参照）</a>。<br>
+        </p>
+    <br><br><br><br><br>
+    <h2 id="Conclusion">Conclusion</h2>
+        <p>結論：<br>       
+            &nbsp;&nbsp;&nbsp;私たちは、食後の音声録音のメルスペクトログラム解析を活用し、モバイルおよび医療機器向けにMobileNetV3モデルを学習させました。<br>
+            このモデルは嚥下性誤嚥の予測において高い性能を示し、機械学習ベースのモニタリング技術の進展を示唆しています。<br>
+            &nbsp;&nbsp;&nbsp;本研究は、音声分析が嚥下障害のスクリーニング、診断、およびモニタリングにおける有用なツールとしての可能性を強調しており、従来の方法（VFSSやFEES）と比較して、分析を簡素化できる点が特徴です。<br>
+            &nbsp;&nbsp;&nbsp;MobileNetV3モデルは嚥下性誤嚥の予測において高い性能を示し、機械学習ベースのモニタリング技術の進展を示唆しています。また、患者は自宅で音声を録音することで自己モニタリングが可能になり、日常生活のデータを医師に提供することで患者の状態を追跡するための貴重な情報となります。日常生活での誤嚥の特定は、患者の生活の質を向上させ、非侵襲的かつ安全な介入につながる可能性があります。
+        </p>
+    <br><br><br><br><br>
+    <h2 id="Limitations">Limitations</h2>
+        <p>本研究の限界：<br>         
+            &nbsp;&nbsp;&nbsp;(1)嚥下障害患者の音声データが限られているため、検証セットは作成せず、代わりに9:1の比率で学習データとテストデータに分割し（10分割交差検証を採用）、モデルを評価しました。<br>
+            &nbsp;&nbsp;&nbsp;(2)誤嚥女性被験者の数が限られていたため、女性モデルの性能は男女混合モデルおよび男性モデルと比較して低い結果となりました。<br>
+            &nbsp;&nbsp;&nbsp;(3)健常者と嚥下障害患者の音声データ収集は異なる環境で実施され、参加者数も異なり、食事の種類も標準化されていませんでした。<br>
+            &nbsp;&nbsp;&nbsp;(4)臨床データの不足に対処するため、一般参加者を対象に募集し、さまざまなデバイスや録音位置で音声を収録しました。デバイスによるバイアスは、前処理後のコサイン類似度が一貫して0.8を超えることを確認することで排除しました。<br>
+            &nbsp;&nbsp;&nbsp;(5)本研究の目的は、嚥下障害のモニタリングおよび介入を目的とした、モバイルおよび医療機器への統合を想定した音声ベースの疾患予測アルゴリズムの開発です。軽量なモデルの作成と、音声入力フォーマットの最適化が重要なステップでした。<br>
+            &nbsp;&nbsp;&nbsp;(6)メルスペクトログラムを使用して学習した機械学習モデルとして、嚥下性誤嚥の予測においてどの要素が重要であるかを理解することに限界がありました。そのため、モデルの特徴量の重要性を測定することが困難であり、特定の特徴量の意義を特定する上での課題に直面しました。
+        </p>
+</body>
+</html>
