@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024.11.21 Paper Japanese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 0;
+        }
+        h1 {
+            font-size: 25px;
+            width: 80px;
+            background-color: aqua;
+            border: 2px solid red;
+            padding: 3px;
+            margin-top: 25px;
+        }
+        h2 {
+            font-size: 30px;
+            width: 250px;
+            background-color: rgb(21, 184, 86);
+            border: 2px solid red;
+            padding: 5px;
+            margin: 30px 0; /* 為了便於測試，在標題上設置較大的上下外邊距 */
+            scroll-margin-top: 50vh; /* 確保標題在螢幕中間位置 */
+        }
+        li {
+            font-size: 15px;
+        }
+        .sticky-container {
+            position: sticky;
+            top: 0; /* 距離頁面頂端 0px */
+            background-color: #f0f0f0; /* 背景色讓容器更醒目 */
+            padding: 5px;
+            z-index: 10; /* 確保容器在其他元素之上 */
+        }
+        p {
+            font-size: 20px;        
+        }
+        div>#theme{
+            color: brown;
+            background-color: bisque;
+            font-size: 25px;
+        }
+        div>#keyword, div>#association {
+            display: block;
+            padding: 3px;
+            float: right;
+            clear: right;
+            /* 確保每個元素在右側獨立排列 請確保 HTML 結構中 #association 是緊隨 #keyword 之後*/
+        }
+        div>#keyword {
+            color: red;
+        }
+        div>#association {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-container">
+        <span id="theme">脳卒中患者における嚥下障害に関連した誤嚥性肺炎の死亡率とリスク</span><br>
+        <span id="keyword">キーワード:誤嚥性肺炎、脳卒中、生存率、嚥下障害</span>
+        <span id="association">Journal of Stroke and Cerebrovascular Diseases, Vol. 28, No. 5 (May), 2019: pp 13811387</span>
+        <h1>Index</h1>
+        <ul>
+            <li><a href="#Purpose">Purpose</a></li>
+            <li><a href="#Method">Method</a></li>
+            <li><a href="#Results">Results</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>
+        </ul>
+    </div>
+    <br><br><br><br><br>
+    <h2 id="Purpose">Purpose</h2>
+        <p>目的：<br>
+            本研究は、台湾における脳卒中患者の嚥下障害に関連する誤嚥性肺炎と死亡率を調査することを目的としました。</p>
+    <br><br><br><br><br>
+    <h2 id="Method">Method</h2>
+        <p>方法：<br>
+            1.データソース:<br>
+            &nbsp;&nbsp;&nbsp;(1)本研究では、台湾の国民健康保険研究データベース（NHIRD）の請求データを使用しました。NHIRD のサブセットである 2000 年版縦断健康保険データベース（LHID 2000）を利用しました。<br>
+            &nbsp;&nbsp;&nbsp;(2)国立健康研究院（NHRI）によると、LHID 2000 と NHIRD の間に年齢、性別、医療費に統計的に有意な差はありません。<br><br>
+            2.研究対象患者：<br>
+            &nbsp;&nbsp;&nbsp;(1)2000年1月1日から2005年12月31日までに診断された脳卒中患者（ICD-9コード：430-438）を特定しました。<br>
+            &nbsp;&nbsp;&nbsp;(2)嚥下障害群（ICD-9コード：787.2）と、嚥下障害と診断されたことのない非嚥下障害群を比較しました。これらの群は、年齢、性別、他の共変量、傾向スコア、診断年を基に1対1でマッチングされました。<br>
+            &nbsp;&nbsp;&nbsp;(3)除外基準：20歳未満、99歳を超える、または追跡保険データが不完全な患者。<br><br>
+            3.誤嚥性肺炎の診断：<br>
+            &nbsp;&nbsp;&nbsp;関心のあるアウトカムは、ICD-9-CMコード507（固体および液体による肺炎）の診断でした。<br>
+            &nbsp;&nbsp;&nbsp;患者は、ベースライン日から誤嚥性肺炎の発生、死亡、国民健康保険の脱退、または研究終了日（2013年12月31日）のいずれか早い時点まで追跡されました。<br><br>
+            4.潜在的交絡因子：<br>
+            ベースライン日の前年の入院および外来の記録を使用し、以下の併存疾患に関する情報を収集しました：<br>
+            高血圧（ICD-9：401-405）、糖尿病（ICD-9：250.X）、高脂血症（ICD-9：272）、心血管疾患（ICD-9：411-414、428）、慢性腎疾患（ICD-9：582、583、585、586、588）、慢性肝疾患（ICD-9：571.2、751.5、571.6、571.40-571.42、571.49、572.2-572.4、572.8、456.0-456.1、456.20、456.21）、がん（ICD-9：140-208）、認知症（ICD-9：290.0-290.4、291.1-291.2、294.1、331.0-331.2、331.82）、およびうつ病（ICD-9：296.2、296.3、300.4、311）。<br><br>
+            5.統計解析：<br>
+            &nbsp;&nbsp;&nbsp;(1)カテゴリデータの差異を評価するために、嚥下障害群と非嚥下障害群の患者間でピアソンのカイ二乗検定またはフィッシャーの正確検定を実施しました。<br>
+            &nbsp;&nbsp;&nbsp;(2)連続データの差異を評価するために、独立t検定を実施しました。<br>
+            &nbsp;&nbsp;&nbsp;(3)Cox比例ハザード回帰分析を用いて死亡率を検討し、ベースライン日から1年、3年、5年以内の誤嚥性肺炎のリスクを嚥下障害群と非嚥下障害群で比較しました。<br>
+            &nbsp;&nbsp;&nbsp;(4)Kaplan-Meier曲線を用いて誤嚥性肺炎および死亡率の発生確率を推定しました。<br>
+            &nbsp;&nbsp;&nbsp;(5)ログランク検定を用いて嚥下障害群と非嚥下障害群の差異を評価しました。<br>
+            &nbsp;&nbsp;&nbsp;(6)統計解析ソフトウェア：SAS 9.3統計パッケージ。<br>
+            &nbsp;&nbsp;&nbsp;(7)P値：両側検定、P値 < 0.05。
+        </p>
+    <br><br><br><br><br>
+    <h2 id="Results">Results</h2>
+        <p>結果：<br>        
+            1.対象となった脳卒中患者の人口統計データ：<br>
+            &nbsp;&nbsp;&nbsp;(1)人口統計データは<a href="./Table1.png" target="_blank">表1</a>に示されています。<br>
+            &nbsp;&nbsp;&nbsp;(2)LHID 2000から収集したデータとして、嚥下障害群に610名、非嚥下障害群に610名の脳卒中患者を含めました。<br>
+            &nbsp;&nbsp;&nbsp;(3)嚥下障害群の追跡期間は平均2.96年、非嚥下障害群の追跡期間は平均3.73年でした。<br><br>
+            2.脳卒中患者における嚥下障害群と非嚥下障害群の間の誤嚥性肺炎リスク：<br>
+            &nbsp;&nbsp;&nbsp;(1)<a href="./Table2.png" target="_blank">表2</a>には、ベースライン日から1年、3年、5年後における脳卒中患者の嚥下障害群と非嚥下障害群の誤嚥性肺炎リスクが示されています。<br>
+            &nbsp;&nbsp;&nbsp;(2)サブグループ解析では、虚血性脳卒中を伴う嚥下障害患者は、非嚥下障害患者よりも誤嚥性肺炎のリスクが有意に高いことが明らかになりました。<br>
+            &nbsp;&nbsp;&nbsp;(3)サブグループ解析では、虚血性脳卒中および脳出血を伴う嚥下障害患者は、非嚥下障害患者よりも誤嚥性肺炎のリスクが有意に高いことが示されました。<br>
+            &nbsp;&nbsp;&nbsp;(4)脳卒中発症後5年以内の誤嚥性肺炎リスクは、嚥下障害群と非嚥下障害群の間で有意に異なり、サブグループ解析では、虚血性脳卒中および脳出血を伴う嚥下障害患者でリスクが有意に高いことが確認されました。<br><br>
+            3.脳卒中患者における嚥下障害群と非嚥下障害群の死亡率：<br>
+            &nbsp;&nbsp;&nbsp;(1)<a href="./Table3.png" target="_blank">表3</a>には、脳卒中発症後1年、3年、5年における嚥下障害群と非嚥下障害群の死亡リスクが示されています。<br>
+            &nbsp;&nbsp;&nbsp;(2)5年以内に死亡した患者は、嚥下障害群では383名（58.8%）、非嚥下障害群では268名（43.9%）でした。<br>
+            &nbsp;&nbsp;&nbsp;(3)Cox比例ハザード回帰分析により、発症後1年以内の死亡リスクは嚥下障害群と非嚥下障害群で有意に異なることが示されました（aHR 1.90、95% CI 1.45–2.49、P < .001）。<br>
+            &nbsp;&nbsp;&nbsp;(4)脳卒中発症後3年以内の死亡リスクも、嚥下障害群と非嚥下障害群で有意に異なりました（aHR 1.93、95% CI 1.60–2.32、P < .001）。<br>
+            &nbsp;&nbsp;&nbsp;(5)脳卒中発症後5年以内の死亡リスクも、両群間で有意に異なることが示されました。<br>
+            &nbsp;&nbsp;&nbsp;(6)また、嚥下障害群と非嚥下障害群の生存曲線（すべての脳卒中、虚血性脳卒中、脳出血、およびその他の脳卒中タイプを含む）を比較した結果（ログランク検定：P < .001）が<a href="./Fig1.png" target="_blank">図1</a>に示されています。
+        </p>
+    <br><br><br><br><br>
+    <h2 id="Conclusion">Conclusion</h2>
+        <p>結論：<br>
+            1.嚥下障害のある患者は、嚥下障害のない患者に比べて肺炎の発生率が高く、嚥下障害のある脳卒中患者では肺炎のリスクが3倍から11倍に増加することが示されています。しかし、誤嚥性肺炎の長期的な相対リスクについては依然として十分に解明されていません。<br>
+            2.出血性脳卒中群では、一般集団における虚血性脳卒中患者の死亡率と比較して出血性脳卒中群の死亡率が高いため、嚥下障害に関連した誤嚥性肺炎の発生率の差は、発症後1年以内には有意ではありません。このため、嚥下障害による二次的合併症である誤嚥性肺炎の発生率は、出血性脳卒中群では少数にとどまると考えられます。<br>
+            3.本研究は、他の研究と比較していくつかの強みがあります。それは、大規模なデータプールを使用し、脳卒中後の二次的な嚥下障害を観察するために長期間の縦断的追跡を行った点です。<br>
+            4.一方で、患者が嚥下障害を確実に有しているかどうかを徹底的に検査されていない可能性や、医師が脳卒中患者の嚥下障害や誤嚥性肺炎の有無を報告しなかった可能性があります。これらの交絡因子が本研究の結果に影響を与えた可能性があります。
+        </p>
+</body>
+</html>
